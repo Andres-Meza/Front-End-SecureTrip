@@ -1,0 +1,21 @@
+<h2>Lista de Países</h2>
+<table>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>País</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let country of countries">
+			<td>{{ country.country_id }}</td>
+			<td>{{ country.country_name }}</td>
+			<td>
+				<button (click)="deleteCountry(country.country_id)">Eliminar</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<button (click)="createCountry()">Crear País</button>
