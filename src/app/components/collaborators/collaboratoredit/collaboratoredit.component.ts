@@ -28,7 +28,7 @@ export class CollaboratoreditComponent implements OnInit {
     CityID: '',
     LanguageID: '',
     Specialty: '',
-    CompetenceLevel: '',
+    CompetencyLevel: '',
     LicenseType: '',
   };
   collaboratorID: number | null = null;
@@ -87,7 +87,7 @@ export class CollaboratoreditComponent implements OnInit {
       this.collaboratorService.updateCollaborator(this.collaboratorID, this.collaborator).subscribe(
         (updatedCollaborator) => {
           Swal.fire('¡Colaborador Actualizado!', 'El colaborador ha sido actualizado correctamente.', 'success');
-          this.router.navigate(['/collaborators']);
+          this.router.navigate(['/collaborators-list']);
         },
         (error) => {
           Swal.fire('Error', 'Hubo un error al actualizar el colaborador.', 'error');

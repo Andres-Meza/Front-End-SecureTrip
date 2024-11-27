@@ -1,0 +1,37 @@
+<div class="body">
+
+	<div class="container">
+		<h1>Lista de Servicios</h1>
+		<button class="btn btn-primary mb-3" (click)="navigateToCreate()">Crear Nuevo Servicio</button>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Precio</th>
+					<th>Tipo de Servicio</th>
+					<th>Prioridad</th>
+					<th>Ultima Modificación</th>
+					<th>Disponibilidad</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let service of services">
+					<td>{{ service.ServiceName }}</td>
+					<td>{{ service.Description }}</td>
+					<td>{{ service.Price }}</td>
+					<td>{{ service.ServiceType }}</td>
+					<td>{{ service.Priority }}</td>
+					<td>{{ service.LastModified | date }}</td>
+					<td>{{ service.AvailabilityStatus }}</td>
+					<td>
+						<button class="btn btn-warning" (click)="navigateToEdit(service.ServiceID)">Editar</button>
+						<button class="btn btn-danger" (click)="deleteService(service.ServiceID)">Eliminar</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

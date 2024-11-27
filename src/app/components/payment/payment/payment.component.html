@@ -1,0 +1,41 @@
+<div>
+	<h2>Registrar Pago</h2>
+	<form (ngSubmit)="registerPayment()">
+		<div>
+			<label for="clientID">Cliente</label>
+			<input type="number" id="clientID" [(ngModel)]="payment.ClientID" name="clientID" required>
+		</div>
+
+		<div>
+			<label for="serviceID">Servicio</label>
+			<input type="number" id="serviceID" [(ngModel)]="payment.ServiceID" name="serviceID" required>
+		</div>
+
+		<div>
+			<label for="amount">Monto</label>
+			<input type="number" id="amount" [(ngModel)]="payment.Amount" name="amount" required>
+		</div>
+
+		<div>
+			<label for="paymentMethod">Método de Pago</label>
+			<select id="paymentMethod" [(ngModel)]="payment.PaymentMethod" name="paymentMethod" required>
+				<option value="Credit Card">Tarjeta de Crédito</option>
+				<option value="PayPal">PayPal</option>
+				<option value="PayPal">Efectivo</option>
+			</select>
+		</div>
+
+		<div>
+			<label for="reference">Referencia</label>
+			<input type="text" id="reference" [(ngModel)]="payment.Reference" name="reference" required>
+		</div>
+
+		<div>
+			<button type="submit">Registrar Pago</button>
+		</div>
+	</form>
+
+	<div *ngIf="mensaje">
+		<p>{{ mensaje }}</p>
+	</div>
+</div>

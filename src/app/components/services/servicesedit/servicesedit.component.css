@@ -1,0 +1,124 @@
+.body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #121212;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 30px;
+	background-color: #1e1e2f;
+	border-radius: 15px;
+	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+	color: #ffffff;
+}
+
+/* Título */
+h2 {
+	font-size: 28px;
+	color: #b3b3ff;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+/* Formulario */
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Organizar los campos en fila */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.form-group {
+	flex: 1 1 48%; /* Flex con base del 48% para dos columnas */
+	margin-right: 20px;
+}
+
+.form-group:last-child {
+	margin-right: 0;
+}
+
+/* Etiquetas */
+.form-group label {
+	font-size: 16px;
+	color: #d1d1d1;
+	margin-bottom: 8px;
+	display: block;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="number"] {
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 8px;
+	border: 1px solid #444;
+	background-color: #2f2f3a;
+	color: #ffffff;
+	transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+	background-color: #3e3e4b;
+	border: 1px solid #6d83f9;
+	outline: none;
+}
+
+/* Botón de Enviar */
+button[type="submit"] {
+	background-color: #6d83f9;
+	color: #ffffff;
+	padding: 12px 20px;
+	font-size: 18px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	width: 100%;
+}
+
+button[type="submit"]:hover {
+	background-color: #5a73e6;
+	transform: translateY(-3px);
+	box-shadow: 0 5px 15px rgba(109, 131, 249, 0.5);
+}
+
+button[type="submit"]:active {
+	background-color: #4a64c4;
+	transform: translateY(0);
+	box-shadow: 0 3px 8px rgba(109, 131, 249, 0.5);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+	.form-group {
+			flex: 1 1 100%; /* En pantallas pequeñas los campos ocupan toda la fila */
+	}
+
+	input[type="text"],
+	input[type="number"] {
+			font-size: 14px;
+			padding: 8px;
+	}
+
+	button[type="submit"] {
+			font-size: 16px;
+			padding: 10px 16px;
+	}
+}

@@ -1,0 +1,35 @@
+<div class="container">
+	<h1>Lista de Planificaciones de Viaje</h1>
+	<button class="btn btn-primary mb-3" (click)="navigateToCreate()">Crear Nueva Planificación</button>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Cliente</th>
+				<th>Guía</th>
+				<th>Fotógrafo</th>
+				<th>Transporte</th>
+				<th>Pais</th>
+				<th>Fecha de Inicio</th>
+				<th>Fecha de Fin</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let planning of travelPlannings">
+				<td>{{ planning.clienteID }}</td>
+				<td>{{ planning.CollaboratorID}}</td>
+				<td>{{ planning.CollaboratorID }}</td>
+				<td>{{ planning.StartDate }}</td>
+				<td>{{ planning.EndDate }}</td>
+				<td>
+					<button class="btn btn-warning" (click)="navigateToEdit(planning.id)">
+						Editar
+					</button>
+					<button class="btn btn-danger" (click)="deleteTravelPlanning(planning.id)">
+						Eliminar
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

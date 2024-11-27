@@ -1,34 +1,60 @@
-<h2>Lista de Clientes</h2>
-<table>
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Email</th>
-			<th>País</th>
-			<th>Idioma</th>
-			<th>Fecha de Nacimiento</th>
-			<th>Estado</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let client of clients">
-			<td>{{ client.clientID }}</td>
-			<td>{{ client.Name }}</td>
-			<td>{{ client.Surname }}</td>
-			<td>{{ client.Email }}</td>
-			<td>{{ client.country_name }}</td>
-			<td>{{ client.city_name }}</td>
-			<td>{{ client.language_name }}</td>
-			<td>{{ client.BirthDate | date }}</td>
-			<td>{{ client.status }}</td>
-			<td>
-				<button (click)="editClient(client.client_id)">Editar</button>
-				<button (click)="deleteClient(client.client_id)">Eliminar</button>
-			</td>
-		</tr>
-	</tbody>
-</table>
-<!-- <button (click)="router.navigate(['/clients/create'])">Crear Nuevo Cliente</button> -->
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h1>Lista de Clientes</h1>
+			<div class="input-group-container">
+				<div class="input-group">
+					<input type="search" placeholder="Buscar Cliente...">
+				</div>
+				<button class="create-button" (click)="createClient()">
+					<ion-icon name="add-circle-outline"></ion-icon>
+				</button>
+			</div>
+		</section>
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Apellido<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Email<span class="icon-arrow">&UpArrow;</span></th>
+						<th>País<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Ciudad<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Idioma<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Fecha de Nacimiento<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Estado<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let client of clients">
+						<td>{{ client.FirstName }}</td>
+						<td>{{ client.LastName }}</td>
+						<td>{{ client.Email }}</td>
+						<td>{{ client.CountryID }}</td>
+						<td>{{ client.CityID }}</td>
+						<td>{{ client.LanguageID }}</td>
+						<td>{{ client.BirthDate | date }}</td>
+						<td>
+							<p class="status" [ngClass]="{
+									'status-active': client.ClientStatus === 'Activo', 
+									'status-blocked': client.ClientStatus === 'Bloqueado', 
+									'status-inactive': client.ClientStatus === 'Inactivo'
+								}">
+								{{ client.ClientStatus }}
+							</p>
+						</td>
+						<td class="action-buttons">
+							<button class="edit-button" (click)="editClient(client.ClientID)">
+								<ion-icon name="create-outline"></ion-icon>
+							</button>
+							<button class="delete-button" (click)="deleteClient(client.ClientID)">
+								<ion-icon name="trash-outline"></ion-icon>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>

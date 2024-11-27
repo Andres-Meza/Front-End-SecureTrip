@@ -27,7 +27,7 @@ export class CitiesService {
     return this.http.put(`${this.baseUrl}/${cityId}`, cityData);
   }
 
-  deleteCity(cityId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${cityId}`);
+  deleteCity(CityID: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${CityID}`);
   }
 }

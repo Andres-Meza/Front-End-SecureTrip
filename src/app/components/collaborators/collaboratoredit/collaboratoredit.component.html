@@ -1,75 +1,81 @@
-<h2>Editar Colaborador</h2>
-<form (ngSubmit)="onSubmit()">
-	<div>
-		<label for="first_name">Nombre:</label>
-		<input id="first_name" type="text" [(ngModel)]="collaborator.FirstName" name="first_name" required />
-	</div>
+<div class="body">
+	<div class="container">
+		<h2 class="form-title">Editar Colaborador</h2>
+		<form (ngSubmit)="onSubmit()" class="form-container">
+			<div class="form-grid">
+				<div class="form-group">
+					<label for="first_name">Nombre:</label>
+					<input id="first_name" type="text" [(ngModel)]="collaborator.FirstName" name="first_name" required />
+				</div>
 
-	<div>
-		<label for="last_name">Apellido:</label>
-		<input id="last_name" type="text" [(ngModel)]="collaborator.LastName" name="last_name" required />
-	</div>
+				<div class="form-group">
+					<label for="last_name">Apellido:</label>
+					<input id="last_name" type="text" [(ngModel)]="collaborator.LastName" name="last_name" required />
+				</div>
 
-	<div>
-		<label for="email">Email:</label>
-		<input id="email" type="email" [(ngModel)]="collaborator.Email" name="email" required />
-	</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input id="email" type="email" [(ngModel)]="collaborator.Email" name="email" required />
+				</div>
 
-	<div>
-		<label for="type_collaborator">Tipo de Colaborador:</label>
-		<select id="type_collaborator" [(ngModel)]="collaborator.TypeCollaborator" name="type_collaborator" required>
-			<option value="Guía">Guía</option>
-			<option value="Fotógrafo">Fotógrafo</option>
-			<option value="Conductor">Conductor</option>
-			<option value="Intérprete">Intérprete</option>
-		</select>
-	</div>
+				<div class="form-group">
+					<label for="type_collaborator">Tipo de Colaborador:</label>
+					<select id="type_collaborator" [(ngModel)]="collaborator.TypeCollaborator" name="type_collaborator" required>
+						<option value="Guía">Guía</option>
+						<option value="Fotógrafo">Fotógrafo</option>
+						<option value="Conductor">Conductor</option>
+						<option value="Intérprete">Intérprete</option>
+					</select>
+				</div>
 
-	<div>
-		<label for="country_id">País:</label>
-		<select id="country_id" [(ngModel)]="collaborator.CountryID" name="country_id" required>
-			<option value="" disabled>Seleccione un país</option>
-			<option *ngFor="let country of countries" [value]="country.CountryID">
-				{{ country.country_name }}
-			</option>
-		</select>
-	</div>
+				<div class="form-group">
+					<label for="country_id">País:</label>
+					<select id="country_id" [(ngModel)]="collaborator.CountryID" name="country_id" required>
+						<option value="" disabled>Seleccione un país</option>
+						<option *ngFor="let country of countries" [value]="country.CountryID">
+							{{ country.NameCountry }}
+						</option>
+					</select>
+				</div>
 
-	<div>
-		<label for="country_id">Ciudad:</label>
-		<select id="country_id" [(ngModel)]="collaborator.CityID" name="country_id" required>
-			<option value="" disabled>Seleccione una Ciudad</option>
-			<option *ngFor="let city of cities" [value]="city.CityID">
-				{{ city.city_name }}
-			</option>
-		</select>
-	</div>
+				<div class="form-group">
+					<label for="city_id">Ciudad:</label>
+					<select id="city_id" [(ngModel)]="collaborator.CityID" name="city_id" required>
+						<option value="" disabled>Seleccione una Ciudad</option>
+						<option *ngFor="let city of cities" [value]="city.CityID">
+							{{ city.NameCity }}
+						</option>
+					</select>
+				</div>
 
-	<div>
-		<label for="language_id">Idioma:</label>
-		<select id="language_id" [(ngModel)]="collaborator.LanguageID" name="language_id" required>
-			<option value="" disabled>Seleccione un idioma</option>
-			<option *ngFor="let language of languages" [value]="language.LanguageID">
-				{{ language.language_name }}
-			</option>
-		</select>
-	</div>
+				<div class="form-group">
+					<label for="language_id">Idioma:</label>
+					<select id="language_id" [(ngModel)]="collaborator.LanguageID" name="language_id" required>
+						<option value="" disabled>Seleccione un idioma</option>
+						<option *ngFor="let language of languages" [value]="language.LanguageID">
+							{{ language.NameLanguage }}
+						</option>
+					</select>
+				</div>
 
-	<div>
-		<label for="specialty">Especialidad:</label>
-		<input id="specialty" type="text" [(ngModel)]="collaborator.Specialty" name="specialty" required />
-	</div>
+				<div class="form-group">
+					<label for="specialty">Especialidad:</label>
+					<input id="specialty" type="text" [(ngModel)]="collaborator.Specialty" name="specialty" required />
+				</div>
 
-	<div>
-		<label for="competence_level">Nivel de Competencia:</label>
-		<input id="competence_level" type="text" [(ngModel)]="collaborator.CompetenceLevel" name="competence_level"
-			required />
-	</div>
+				<div class="form-group">
+					<label for="competence_level">Nivel de Competencia:</label>
+					<input id="competence_level" type="text" [(ngModel)]="collaborator.CompetencyLevel" name="competence_level"
+						required />
+				</div>
 
-	<div>
-		<label for="license_type">Tipo de Licencia:</label>
-		<input id="license_type" type="text" [(ngModel)]="collaborator.LicenseType" name="license_type" required />
-	</div>
+				<div class="form-group">
+					<label for="license_type">Tipo de Licencia:</label>
+					<input id="license_type" type="text" [(ngModel)]="collaborator.LicenseType" name="license_type" required />
+				</div>
+			</div>
 
-	<button type="submit">Actualizar Colaborador</button>
-</form>
+			<button type="submit" class="form-button">Actualizar Colaborador</button>
+		</form>
+	</div>
+</div>

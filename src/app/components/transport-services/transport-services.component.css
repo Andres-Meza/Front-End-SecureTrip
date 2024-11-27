@@ -1,0 +1,137 @@
+.body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #121212;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+table {
+	width: 100%;
+	margin-top: 20px;
+	border-collapse: collapse;
+	background-color: #1e1e2f;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la cabecera de la tabla */
+th {
+	background-color: #2f2f3a;
+	color: #b3b3ff;
+	padding: 12px 15px;
+	font-size: 16px;
+	text-align: left;
+}
+
+/* Estilos para las filas de la tabla */
+td {
+	background-color: #2a2a3d;
+	color: #ffffff;
+	padding: 12px 15px;
+	text-align: left;
+}
+
+tr:nth-child(even) td {
+	background-color: #323242;
+}
+
+tr:hover td {
+	background-color: #44475a;
+	cursor: pointer;
+}
+
+/* Estilos para el encabezado y el formulario */
+.table__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-size: 24px;
+	color: #b3b3ff;
+}
+
+.input-group input {
+	padding: 10px;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px;
+	background-color: #2f2f3a;
+	color: white;
+}
+
+.input-group input:focus {
+	outline: none;
+	background-color: #3e3e4b;
+}
+
+/* Botones */
+button {
+	padding: 10px 15px;
+	border-radius: 8px;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+}
+
+button.btn-primary {
+	background-color: #6d83f9;
+	color: white;
+}
+
+button.btn-primary:hover {
+	background-color: #5a73e6;
+}
+
+button.btn-warning {
+	background-color: #f39c12;
+	color: white;
+}
+
+button.btn-warning:hover {
+	background-color: #e67e22;
+}
+
+button.btn-danger {
+	background-color: #e74c3c;
+	color: white;
+}
+
+button.btn-danger:hover {
+	background-color: #c0392b;
+}
+
+/* Estilos para los contenedores de la tabla y botones */
+.table__body {
+	margin-top: 20px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+	table {
+			width: 100%;
+	}
+
+	th, td {
+			padding: 8px;
+			font-size: 14px;
+	}
+
+	.input-group input {
+			font-size: 14px;
+			padding: 8px;
+	}
+
+	button {
+			font-size: 12px;
+			padding: 8px 12px;
+	}
+}

@@ -28,7 +28,7 @@ export class CollaboratorComponent implements OnInit {
     CityID: '',
     LanguageID: '',
     Specialty: '',
-    CompetenceLevel: '',
+    CompetencyLevel: '',
     LicenseType: '',
   };
 
@@ -68,7 +68,7 @@ export class CollaboratorComponent implements OnInit {
     this.collaboratorService.createCollaborator(this.collaborator).subscribe(
       (createdCollaborator) => {
         Swal.fire('¡Colaborador Creado!', 'El colaborador ha sido creado correctamente.', 'success');
-        this.router.navigate(['/collaborators']);
+        this.router.navigate(['/collaborators-list']);
       },
       (error) => {
         Swal.fire('Error', 'Hubo un error al crear el colaborador.', 'error');

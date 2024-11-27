@@ -1,0 +1,29 @@
+<div class="container">
+	<h1>Crear Nueva Planificación de Viaje</h1>
+	<form (ngSubmit)="createTravelPlanning()">
+		<div class="form-group">
+			<label for="client_id">Cliente</label>
+			<input id="client_id" class="form-control" [(ngModel)]="travelPlanning.client_id" name="client_id" required>
+		</div>
+		<div class="form-group">
+			<label for="guide_id">Guía</label>
+			<input id="guide_id" class="form-control" [(ngModel)]="travelPlanning.guide_id" name="guide_id" required>
+		</div>
+		<div class="form-group">
+			<label for="photographer_id">Fotógrafo</label>
+			<input id="photographer_id" class="form-control" [(ngModel)]="travelPlanning.photographer_id"
+				name="photographer_id" required>
+		</div>
+		<div class="form-group">
+			<label for="start_date">Fecha de Inicio</label>
+			<input type="date" id="start_date" class="form-control" [(ngModel)]="travelPlanning.start_date" name="start_date"
+				required>
+		</div>
+		<div class="form-group">
+			<label for="end_date">Fecha de Fin</label>
+			<input type="date" id="end_date" class="form-control" [(ngModel)]="travelPlanning.end_date" name="end_date"
+				required>
+		</div>
+		<button type="submit" class="btn btn-primary mt-3">Crear Planificación</button>
+	</form>
+</div>

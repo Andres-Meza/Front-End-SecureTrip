@@ -20,15 +20,15 @@ export class ClientComponent implements OnInit {
   cities: any[] = [];
   languages: any[] = [];
   client = {
-    Name: '',
-    Surname: '',
+    FirstName: '',
+    LastName: '',
     Email: '',
     Password: '',
     CountryID: '',
     CityID: '',
     LanguageID: '',
     BirthDate: '',
-    status: 'Activo'
+    ClientStatus: 'Activo'
   };
 
   constructor(
@@ -67,7 +67,7 @@ export class ClientComponent implements OnInit {
     this.clientService.createClient(this.client).subscribe(
       (createdClient) => {
         Swal.fire('¡Cliente Creado!', 'El cliente ha sido creado correctamente.', 'success');
-        this.router.navigate(['/clients']);
+        this.router.navigate(['/clients-list']);
       },
       (error) => {
         Swal.fire('Error', 'Hubo un error al crear el cliente.', 'error');

@@ -1,0 +1,41 @@
+<div class="body">
+	<div class="container">
+		<h1>Crear Nuevo Servicio</h1>
+		<form (ngSubmit)="createService()">
+			<div class="row">
+				<div class="form-group">
+					<label for="nombre_servicio">Nombre del Servicio</label>
+					<input id="nombre_servicio" class="form-control" [(ngModel)]="service.ServiceName" name="nombre_servicio"
+						required>
+				</div>
+				<div class="form-group">
+					<label for="descripcion">Descripción</label>
+					<textarea id="descripcion" class="form-control" [(ngModel)]="service.Description" name="descripcion"
+						required></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<label for="precio">Precio</label>
+					<input id="precio" type="number" class="form-control" [(ngModel)]="service.Price" name="precio" required>
+				</div>
+				<div class="form-group">
+					<label for="typeservice">Tipo de Servicio</label>
+					<input id="typeservice" class="form-control" [(ngModel)]="service.ServiceType" name="typeservice" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<label for="servicepriority">Prioridad del Servicio</label>
+					<input id="servicepriority" class="form-control" [(ngModel)]="service.ServicePriority" name="servicepriority"
+						required>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary mt-3">Crear Servicio</button>
+		</form>
+	</div>
+
+</div>

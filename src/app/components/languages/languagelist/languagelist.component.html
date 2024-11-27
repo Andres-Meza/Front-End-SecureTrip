@@ -1,18 +1,25 @@
-<h2>Lista de Idiomas</h2>
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h1>Lista de Lenguajes</h1>
+			<div class="input-group">
+				<input type="search" placeholder="Search Data...">
+			</div>
+		</section>
+		<section class="table__body">
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
 			<th>Idioma</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let language of languages">
-			<td>{{ language.language_id }}</td>
-			<td>{{ language.language_name }}</td>
+			<td>{{ language.NameLanguage }}</td>
 			<td>
-				<button (click)="deleteLanguage(language.language_id)">Eliminar</button>
+				<button (click)="updateLanguage(language)">Editar</button>
+				<button (click)="deleteLanguage(language.LanguageID)">Eliminar</button>
 			</td>
 		</tr>
 	</tbody>

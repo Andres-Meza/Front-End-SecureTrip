@@ -2,6 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface PaymentRequest {
+  ClientID: number;
+  ServiceID: number;
+  Amount: number;
+  PaymentMethod: string;
+  IPAddress: string;
+  Reference: string;
+}
+
+
+export interface PaymentResponse {
+  mensaje: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,6 +30,10 @@ export class PaymentsService {
 
   createPayment(paymentData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/`, paymentData);
+  }
+
+  registerPayment(payment: PaymentRequest): Observable<PaymentResponse> {
+    return this.http.post<PaymentResponse>(this.baseUrl, payment);
   }
 
   updatePayment(paymentId: number, paymentData: any): Observable<any> {

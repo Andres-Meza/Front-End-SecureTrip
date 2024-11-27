@@ -1,21 +1,38 @@
-<h2>Lista de Países</h2>
-<table>
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>País</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let country of countries">
-			<td>{{ country.country_id }}</td>
-			<td>{{ country.country_name }}</td>
-			<td>
-				<button (click)="deleteCountry(country.country_id)">Eliminar</button>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<button (click)="createCountry()">Crear País</button>
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h1>Lista de Países</h1>
+			<div class="input-group-container">
+				<button class="create-button" (click)="createCountry()">
+					<ion-icon name="add-circle-outline"></ion-icon> Crear País
+				</button>
+				<div class="input-group">
+					<input type="search" placeholder="Buscar País..." />
+				</div>
+			</div>
+		</section>
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>País</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let country of countries">
+						<td>{{ country.NameCountry }}</td>
+						<td>
+							<button class="edit-button" (click)="editCountry(country)">
+								<ion-icon name="create-outline"></ion-icon> Editar
+							</button>
+							<button class="delete-button" (click)="deleteCountry(country.CountryID)">
+								<ion-icon name="trash-outline"></ion-icon> Eliminar
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>

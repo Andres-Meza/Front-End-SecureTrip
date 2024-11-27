@@ -1,24 +1,40 @@
-<h2>Lista de Ciudades</h2>
-<table>
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Ciudad</th>
-			<th>País</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let city of cities">
-			<td>{{ city.city_id }}</td>
-			<td>{{ city.city_name }}</td>
-			<td>{{ city.country_name }}</td>
-			<td>
-				<button (click)="editCity(city)">Editar</button>
-				<button (click)="deleteCity(city.city_id)">Eliminar</button>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<button (click)="createCity()">Crear Ciudad</button>
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h2>Lista de Ciudades</h2>
+			<div class="input-group-container">
+				<button class="create-city-button" (click)="createCity()">
+					<ion-icon name="add-circle-outline"></ion-icon> Crear Ciudad
+				</button>
+				<div class="input-group">
+					<input type="search" placeholder="Buscar Ciudad..." />
+				</div>
+			</div>
+		</section>
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>Ciudad<span class="icon-arrow">&UpArrow;</span></th>
+						<th>País<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let city of cities">
+						<td>{{ city.NameCity }}</td>
+						<td>{{ city.NameCountry }}</td>
+						<td class="action-buttons">
+							<button class="edit-button" (click)="editCity(city)">
+								<ion-icon name="create-outline"></ion-icon>
+							</button>
+							<button class="delete-button" (click)="deleteCity(city)">
+								<ion-icon name="trash-outline"></ion-icon>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>

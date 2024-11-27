@@ -19,15 +19,14 @@ export class ClienteditComponent implements OnInit {
   cities: any[] = [];
   languages: any[] = [];
   client = {
-    Name: '',
-    Surname: '',
+    FirstName: '',
+    LastName: '',
     Email: '',
     Password: '',
     CountryID: '',
     CityID: '',
     LanguageID: '',
     BirthDate: '',
-    status: 'Activo'
   };
 
   clientID: number | null = null;
@@ -86,7 +85,7 @@ export class ClienteditComponent implements OnInit {
       this.clientService.updateClient(this.clientID, this.client).subscribe(
         (updatedClient) => {
           Swal.fire('¡Cliente Actualizado!', 'El cliente ha sido actualizado correctamente.', 'success');
-          this.router.navigate(['/clients']);
+          this.router.navigate(['/clients-list']);
         },
         (error) => {
           Swal.fire('Error', 'Hubo un error al actualizar el cliente.', 'error');

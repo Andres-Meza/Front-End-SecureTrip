@@ -14,6 +14,10 @@ export class CollaboratorsService {
     return this.http.get(`${this.baseUrl}/`);
   }
 
+  getCollaboratorsDrivers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/collaborators?TypeCollaborator=Conductor`);
+  }
+
   getCollaboratorByID(collaboratorId: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${collaboratorId}`);
   }

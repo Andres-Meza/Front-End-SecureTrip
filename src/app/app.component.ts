@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [ RouterOutlet, RouterModule ],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet],
   template: `
     <div>
-      <h1>Gestión de Ciudades y Transportes</h1>
-      <nav>
-        <ul>
-          <li><a routerLink="/cities">Ver Ciudades</a></li>
-          <li><a routerLink="/transports">Ver Transportes</a></li>
-        </ul>
-      </nav>
       <router-outlet></router-outlet>
     </div>
   `,

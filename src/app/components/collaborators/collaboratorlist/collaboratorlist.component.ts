@@ -45,9 +45,10 @@ export class CollaboratorlistComponent implements OnInit {
         this.collaboratorService.deleteCollaborator(collaboratorId).subscribe(
           () => {
             this.collaborators = this.collaborators.filter(
-              (collaborator) => collaborator.collaborator_id !== collaboratorId
+              (collaborator) => collaborator.collaboratorId !== collaboratorId
             );
             Swal.fire('Eliminado', 'El colaborador ha sido eliminado', 'success');
+            this.loadCollaborators();
           },
           (error) => {
             Swal.fire('Error', 'Hubo un error al eliminar el colaborador', 'error');
@@ -59,6 +60,10 @@ export class CollaboratorlistComponent implements OnInit {
   }
 
   editCollaborator(collaboratorId: number): void {
-    this.router.navigate([`/collaborators/edit/${collaboratorId}`]);
+    this.router.navigate([`/collaborators-edit/${collaboratorId}`]);
+  }
+
+  createCollaborator(): void {
+    this.router.navigate([`/collaborators-add/`]);
   }
 }

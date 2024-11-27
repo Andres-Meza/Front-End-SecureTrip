@@ -1,0 +1,29 @@
+<div class="body">
+	<div class="wrapper">
+		<form (ngSubmit)="onLogin()" class="login-form">
+			<h1 class="tittle">Iniciar Sesión</h1>
+
+			<div class="form-group">
+				<input type="email" class="input" id="email" [(ngModel)]="Email" name="email" required
+					placeholder="Ingresa tu correo">
+			</div>
+
+			<div class="form-group">
+				<input type="password" class="input" id="password" [(ngModel)]="Password" name="password" required
+					placeholder="Ingresa tu contraseña">
+			</div>
+
+			<div *ngIf="errorMessage" class="error-message">
+				{{ errorMessage }}
+			</div>
+
+			<button type="submit" class="submit">Iniciar Sesión</button>
+			<p class="footer">¿No tienes cuenta? <a href="/clients-add">Registrarse</a></p>
+		</form>
+		<div></div>
+		<div class="banner">
+			<h1 class="wel_text">BIENVENIDOS</h1>
+			<p class="para">Gracias por escogernos <br> :) <br> SecureTrip</p>
+		</div>
+	</div>
+</div>

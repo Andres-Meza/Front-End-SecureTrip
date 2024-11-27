@@ -1,27 +1,60 @@
-<h2>Lista de Colaboradores</h2>
-<table>
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Email</th>
-			<th>Tipo</th>
-			<th>Acciones</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let collaborator of collaborators">
-			<td>{{ collaborator.collaborator_id }}</td>
-			<td>{{ collaborator.first_name }}</td>
-			<td>{{ collaborator.last_name }}</td>
-			<td>{{ collaborator.email }}</td>
-			<td>{{ collaborator.type_collaborator }}</td>
-			<td>
-				<button (click)="editCollaborator(collaborator.collaborator_id)">Editar</button>
-				<button (click)="deleteCollaborator(collaborator.collaborator_id)">Eliminar</button>
-			</td>
-		</tr>
-	</tbody>
-</table>
-<!-- <button (click)="router.navigate(['/collaborators/create'])">Crear Nuevo Colaborador</button> -->
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h1>Lista de Colaboradores</h1>
+			<button class="btn-create" (click)="createCollaborator()">Crear Nuevo Colaborador</button>
+			<div class="input-group">
+				<input type="search" placeholder="Search Data...">
+			</div>
+		</section>
+		<section class="table__body">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Apellido<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Email<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Tipo<span class="icon-arrow">&UpArrow;</span></th>
+						<th>País<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Ciudad<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Idioma<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Especialidad<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Nivel de Competencia<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Tipo de Licencia<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Estado<span class="icon-arrow">&UpArrow;</span></th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let collaborator of collaborators">
+						<td>{{ collaborator.FirstName }}</td>
+						<td>{{ collaborator.LastName }}</td>
+						<td>{{ collaborator.Email }}</td>
+						<td>{{ collaborator.TypeCollaborator }}</td>
+						<td>{{ collaborator.CountryID }}</td>
+						<td>{{ collaborator.CityID }}</td>
+						<td>{{ collaborator.LanguageID }}</td>
+						<td>{{ collaborator.Specialty }}</td>
+						<td>{{ collaborator.CompetencyLevel }}</td>
+						<td>{{ collaborator.LicenseType }}</td>
+						<!-- Estado -->
+						<td>
+							<span [ngClass]="{
+									'status-active': collaborator.StatusCollaborator === 'Activo',
+									'status-blocked': collaborator.StatusCollaborator === 'Bloqueado',
+									'status-inactive': collaborator.StatusCollaborator === 'Inactivo'
+								}">
+								{{ collaborator.StatusCollaborator }}
+							</span>
+						</td>
+						<!-- Botones de acción -->
+						<td>
+							<button class="edit-btn" (click)="editCollaborator(collaborator.CollaboratorID)">Editar</button>
+							<button class="delete-btn" (click)="deleteCollaborator(collaborator.CollaboratorID)">Eliminar</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>

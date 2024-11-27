@@ -27,9 +27,33 @@ export class LanguagelistComponent implements OnInit {
     });
   }
 
-  deleteLanguage(languageId: number): void {
-    this.languageService.deleteLanguage(languageId).subscribe(() => {
-      this.languages = this.languages.filter((language) => language.language_id !== languageId);
+  deleteLanguage(LanguageID: number): void {
+    if (LanguageID === null || LanguageID === undefined) {
+      console.error('LangugageID no válido:', LanguageID);
+      Swal.fire('Error', 'ID de lenguaje no válido.', 'error');
+      return;
+    }
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esto eliminará el lenguaje seleccionado de forma permanente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.languageService.deleteLanguage(LanguageID).subscribe(
+          () => {
+            this.languages = this.languages.filter((language) => language.LanguageID !== LanguageID);
+            Swal.fire('¡Eliminado!', 'El país ha sido eliminado correctamente.', 'success');
+          },
+          (error) => {
+            console.error('Error al eliminar el país:', error);
+            Swal.fire('Error', 'Hubo un error al eliminar el país.', 'error');
+          }
+        );
+      }
     });
   }
 
@@ -37,24 +61,24 @@ export class LanguagelistComponent implements OnInit {
     Swal.fire({
       title: 'Crear Nuevo Idioma',
       html: `
-        <input type="text" id="languageName" class="swal2-input" placeholder="Nombre del idioma" required>
+        <input type="text" id="NameLanguage" class="swal2-input" placeholder="Nombre del idioma" required>
       `,
       confirmButtonText: 'Crear Idioma',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       preConfirm: () => {
-        const languageName = (document.getElementById('languageName') as HTMLInputElement).value;
+        const NameLanguage = (document.getElementById('NameLanguage') as HTMLInputElement).value;
 
-        if (!languageName) {
+        if (!NameLanguage) {
           Swal.showValidationMessage('Por favor ingrese el nombre del idioma.');
           return false;
         }
 
-        return { languageName };
+        return { NameLanguage };
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        const newLanguage = { language_name: result.value.languageName };
+        const newLanguage = { NameLanguage: result.value.NameLanguage };
 
         this.languageService.createLanguage(newLanguage).subscribe(
           (createdLanguage) => {
@@ -64,6 +88,43 @@ export class LanguagelistComponent implements OnInit {
           (error) => {
             Swal.fire('Error', 'Hubo un error al crear el idioma.', 'error');
             console.error('Error creando idioma:', error);
+          }
+        );
+      }
+    });
+  }
+
+  updateLanguage(language: any): void {
+    Swal.fire({
+      title: 'Editar Lenguaje',
+      html: `
+        <input id="NameLanguage" class="swal2-input" placeholder="Nombre del País" value="${language.NameLanguage}">
+      `,
+      confirmButtonText: 'Actualizar',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      preConfirm: () => {
+        const updatedName = (document.getElementById('NameLanguage') as HTMLInputElement).value;
+        if (!updatedName) {
+          Swal.showValidationMessage('Por favor ingresa un nombre de lenguaje');
+          return false;
+        }
+        return updatedName;
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedLanguage = {
+          LanguageID: language.LanguageID,
+          NameLanguage: result.value
+        };
+        this.languageService.updateLanguage(updatedLanguage.LanguageID, updatedLanguage).subscribe(
+          (updated) => {
+            Swal.fire('¡Actualizado!', 'El lenguaje ha sido actualizado correctamente.', 'success');
+            this.loadLanguages();
+          },
+          (error) => {
+            Swal.fire('Error', 'Hubo un error al actualizar el lenguaje.', 'error');
+            console.error('Error actualizando el país:', error);
           }
         );
       }

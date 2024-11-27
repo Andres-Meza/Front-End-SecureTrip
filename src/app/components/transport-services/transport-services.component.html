@@ -1,0 +1,31 @@
+<div class="body">
+	<main class="table" id="customers_table">
+		<section class="table__header">
+			<h1>Lista de Servicios de Transporte</h1>
+			<button class="btn btn-primary mb-3" (click)="createService()">Agregar Servicio</button>
+		</section>
+		<section class="table__body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Tipo</th>
+						<th>Capacidad</th>
+						<th>Conductor</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let service of transportServices">
+						<td>{{ service.TransportType }}</td>
+						<td>{{ service.Capacity }}</td>
+						<td>{{ getCollaboratorName(service.DriverID) }}</td>
+						<td>
+							<button class="btn btn-warning" (click)="editService(service)">Editar</button>
+							<button class="btn btn-danger" (click)="deleteService(service.TransportID)">Eliminar</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</div>

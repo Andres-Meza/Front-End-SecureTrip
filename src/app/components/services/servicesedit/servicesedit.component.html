@@ -1,0 +1,34 @@
+<div class="body">
+	<div class="container">
+		<h2>Editar Colaborador</h2>
+		<form (ngSubmit)="onSubmit()">
+			<div class="row">
+				<div class="form-group">
+					<label for="Description">Descripción:</label>
+					<input id="Description" type="text" [(ngModel)]="service.Description" name="Description" required />
+				</div>
+
+				<div class="form-group">
+					<label for="Price">Precio:</label>
+					<input id="Price" type="number" [(ngModel)]="service.Price" name="Price" required />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<label for="AvailabilityStatus">Estado:</label>
+					<input id="AvailabilityStatus" type="text" [(ngModel)]="service.AvailabilityStatus" name="AvailabilityStatus"
+						required />
+				</div>
+
+				<div class="form-group">
+					<label for="ServicePriority">Prioridad:</label>
+					<input id="ServicePriority" type="text" [(ngModel)]="service.ServicePriority" name="ServicePriority"
+						required />
+				</div>
+			</div>
+
+			<button type="submit">Actualizar Colaborador</button>
+		</form>
+	</div>
+</div>

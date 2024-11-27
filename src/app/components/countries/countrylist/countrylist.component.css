@@ -1,0 +1,178 @@
+.body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #121212;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+/* Cabecera de la tabla */
+.table__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.table__header h1 {
+	font-size: 28px;
+	color: #4CAF50;
+	font-weight: 600;
+}
+
+.table__header .input-group-container {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.input-group input {
+	padding: 12px;
+	font-size: 16px;
+	width: 300px;
+	border-radius: 5px;
+	border: 1px solid #333;
+	background-color: #222;
+	color: #fff;
+}
+
+.input-group input::placeholder {
+	color: #bbb;
+}
+
+/* Botón de crear con íconos */
+.create-button {
+	padding: 12px 20px;
+	background-color: #4CAF50;
+	color: #fff;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: all 0.3s ease;
+}
+
+.create-button:hover {
+	background-color: #45a049;
+}
+
+.create-button ion-icon {
+	font-size: 20px;
+}
+
+/* Estilo de la tabla */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 15px;
+	text-align: left;
+	font-size: 16px;
+}
+
+th {
+	background-color: #333;
+	color: #fff;
+}
+
+td {
+	background-color: #222;
+	color: #ccc;
+}
+
+tr:nth-child(even) {
+	background-color: #2a2a2a;
+}
+
+tr:hover {
+	background-color: #444;
+}
+
+/* Botones de acción en la tabla */
+button {
+	padding: 8px 15px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+.edit-button {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.edit-button:hover {
+	background-color: #45a049;
+}
+
+.delete-button {
+	background-color: #f44336;
+	color: white;
+}
+
+.delete-button:hover {
+	background-color: #e53935;
+}
+
+/* Estilo del modal o SweetAlert */
+.swal2-popup {
+	background-color: #333 !important;
+	color: #fff !important;
+	font-family: 'Roboto', sans-serif !important;
+	border-radius: 10px;
+}
+
+.swal2-title {
+	color: #4CAF50;
+	font-size: 20px;
+}
+
+.swal2-actions {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+}
+
+.swal2-cancel {
+	background-color: #f44336 !important;
+	color: #fff !important;
+	padding: 8px 15px;
+	border-radius: 5px;
+}
+
+.swal2-confirm {
+	background-color: #4CAF50 !important;
+	color: #fff !important;
+	padding: 8px 15px;
+	border-radius: 5px;
+}
+
+/* Input fields de SweetAlert */
+.swal2-input {
+	background-color: #222;
+	border: 1px solid #4CAF50;
+	padding: 10px;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.swal2-input:focus {
+	border-color: #45a049;
+	outline: none;
+}

@@ -1,0 +1,158 @@
+.body {
+	font-family: 'Poppins', sans-serif;
+	background-color: #121212;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.table {
+	width: 90%;
+	max-width: 1000px;
+}
+
+.table__header h1 {
+	text-align: center;
+	font-size: 28px;
+	color: #b3b3ff;
+}
+
+.input-group-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.input-group {
+	flex: 1;
+}
+
+.input-group input {
+	padding: 10px;
+	border-radius: 8px;
+	border: 2px solid #444;
+	width: 100%;
+	background-color: #252536;
+	color: #ffffff;
+	font-size: 16px;
+}
+
+.create-button {
+	background-color: #4CAF50; /* Color verde */
+	border: none;
+	border-radius: 50%;
+	padding: 15px;
+	margin-left: 15px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.create-button:hover {
+	background-color: #45a049; /* Color verde más oscuro */
+	transform: translateY(-3px);
+}
+
+.create-button:active {
+	transform: translateY(0);
+}
+
+.create-button ion-icon {
+	color: white;
+	font-size: 28px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 30px;
+}
+
+table th, table td {
+	padding: 12px;
+	text-align: left;
+}
+
+th {
+	background-color: #1e1e2f;
+	color: #ffffff;
+}
+
+td {
+	background-color: #252536;
+	color: #cccccc;
+}
+
+button {
+	padding: 8px;
+	font-size: 18px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+	transform: translateY(-3px);
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+	transform: translateY(0);
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button {
+	background-color: #f4d03f;
+	color: #ffffff;
+}
+
+.delete-button {
+	background-color: #f44336;
+	color: #ffffff;
+}
+
+.status {
+	font-size: 14px;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.status-active {
+	background-color: #4caf50; /* Verde */
+	color: #ffffff;
+}
+
+.status-blocked {
+	background-color: #f44336; /* Rojo */
+	color: #ffffff;
+}
+
+.status-inactive {
+	background-color: #f4d03f; /* Amarillo */
+	color: #ffffff;
+}
+
+ion-icon {
+	margin-right: 0;
+	font-size: 24px;
+}
+
+.action-buttons {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.action-buttons button {
+	margin-right: 10px; /* Espacio entre los botones */
+}
