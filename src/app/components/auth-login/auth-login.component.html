@@ -1,16 +1,16 @@
 <div class="body">
 	<div class="wrapper">
 		<form (ngSubmit)="onLogin()" class="login-form">
-			<h1 class="tittle">Iniciar Sesión</h1>
+			<h1 class="title">Iniciar Sesión</h1>
 
 			<div class="form-group">
 				<input type="email" class="input" id="email" [(ngModel)]="Email" name="email" required
-					placeholder="Ingresa tu correo">
+					placeholder="Ingresa tu correo" autocomplete="off">
 			</div>
 
 			<div class="form-group">
 				<input type="password" class="input" id="password" [(ngModel)]="Password" name="password" required
-					placeholder="Ingresa tu contraseña">
+					placeholder="Ingresa tu contraseña" autocomplete="off">
 			</div>
 
 			<div *ngIf="errorMessage" class="error-message">

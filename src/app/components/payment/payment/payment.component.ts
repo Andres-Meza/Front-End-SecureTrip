@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ClientsService } from '../../../services/clients.service';
 import { ServicesService } from '../../../services/services.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -64,17 +65,35 @@ export class PaymentComponent implements OnInit {
     });
   }
   
-  registerPayment() {
-    this.paymentService.registerPayment(this.payment).subscribe(
-      response => {
-        this.mensaje = `Pago exitoso. Referencia`;
-        this.error = false;
-        this.router.navigate(['/payment-list']);
-      },
-      err => {
-        this.mensaje = 'Error al registrar el pago.';
-        this.error = true;
-      }
-    );
-  }
+  registerPayment() {  
+    this.paymentService.registerPayment(this.payment).subscribe(  
+      (response: PaymentResponse) => {
+        const referenciaPago = response.reference;
+        this.mensaje = `Pago exitoso. Referencia: ${referenciaPago}`;  
+        this.error = false;  
+
+        Swal.fire({  
+          title: 'Pago Registrado',  
+          text: this.mensaje,  
+          icon: 'success',  
+          confirmButtonText: 'Aceptar'  
+        }).then((result) => {  
+          if (result.isConfirmed) {  
+            this.router.navigate(['/payment-list']);  
+          }  
+        });  
+      },  
+      err => {  
+        this.mensaje = 'Error al registrar el pago.';  
+        this.error = true;  
+
+        Swal.fire({  
+          title: 'Error',  
+          text: this.mensaje,  
+          icon: 'error',  
+          confirmButtonText: 'Aceptar'  
+        });  
+      }  
+    );  
+  } 
 }

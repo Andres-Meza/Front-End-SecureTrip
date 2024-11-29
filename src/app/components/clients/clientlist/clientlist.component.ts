@@ -14,7 +14,9 @@ import Swal from 'sweetalert2';
   styleUrl: './clientlist.component.css'
 })
 export class ClientlistComponent {
-  clients: any[] = [];
+  clients: any[] = []; 
+  filteredClients: any[] = [];
+  searchKeyword: string = '';
 
   constructor(
     private clientService: ClientsService,
@@ -25,11 +27,24 @@ export class ClientlistComponent {
     this.loadClients();
   }
 
-  loadClients(): void {
-    this.clientService.getClients().subscribe((data) => {
+  loadClients(): void {  
+    this.clientService.getClients().subscribe((data: any[]) => {  
       this.clients = data;
-    });
-  }
+      this.filteredClients = data;
+    });  
+  } 
+
+  searchClients(): void {  
+    if (this.searchKeyword.trim()) {  
+      this.filteredClients = this.clients.filter(client =>   
+        client.FirstName.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||   
+        client.LastName.toLowerCase().includes(this.searchKeyword.toLowerCase()) ||  
+        client.Email.toLowerCase().includes(this.searchKeyword.toLowerCase()) // Puedes añadir más campos  
+      );  
+    } else {  
+      this.filteredClients = this.clients; // Si no hay búsqueda, mostrar todos  
+    }  
+  } 
 
   deleteClient(clientId: number): void {
     Swal.fire({

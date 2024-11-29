@@ -83,15 +83,13 @@ export class ClienteditComponent implements OnInit {
   onSubmit(): void {
     if (this.clientID !== null) {
       this.clientService.updateClient(this.clientID, this.client).subscribe(
-        (updatedClient) => {
-          Swal.fire('¡Cliente Actualizado!', 'El cliente ha sido actualizado correctamente.', 'success');
-          this.router.navigate(['/clients-list']);
-        },
-        (error) => {
-          Swal.fire('Error', 'Hubo un error al actualizar el cliente.', 'error');
-          console.error('Error actualizando cliente:', error);
-        }
-      );
+        response => {  
+          Swal.fire('¡Cliente Actualizado!', 'El cliente ha sido actualizado correctamente.', 'success');  
+          this.router.navigate(['/clients-list']);  
+      }, error => {  
+          Swal.fire('Error', 'Hubo un error al actualizar el cliente.', 'error');  
+          console.error('Error actualizando cliente:', error);  
+      });  
     }
   }
 }

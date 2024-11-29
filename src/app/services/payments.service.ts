@@ -49,8 +49,8 @@ export class PaymentsService {
     return this.http.post(`${this.baseUrl}/`, paymentData);
   }
 
-  registerPayment(paymentData: any) {
-    return this.http.post(this.baseUrl, paymentData);
+  registerPayment(paymentData: PaymentRequest): Observable<PaymentResponse> {
+    return this.http.post<PaymentResponse>(this.baseUrl, paymentData);  
   }
 
   updatePayment(paymentId: number, paymentData: any): Observable<any> {

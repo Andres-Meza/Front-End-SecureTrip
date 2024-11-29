@@ -4,7 +4,7 @@
 			<h1>Lista de Clientes</h1>
 			<div class="input-group-container">
 				<div class="input-group">
-					<input type="search" placeholder="Buscar Cliente...">
+					<input type="search" placeholder="Buscar Cliente..." [(ngModel)]="searchKeyword" (input)="searchClients()">
 				</div>
 				<button class="create-button" (click)="createClient()">
 					<ion-icon name="add-circle-outline"></ion-icon>
@@ -27,7 +27,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="let client of clients">
+					<tr *ngFor="let client of filteredClients"> <!-- Cambiado a filteredClients -->
 						<td>{{ client.FirstName }}</td>
 						<td>{{ client.LastName }}</td>
 						<td>{{ client.Email }}</td>
@@ -36,10 +36,10 @@
 						<td>{{ client.LanguageID }}</td>
 						<td>{{ client.BirthDate | date }}</td>
 						<td>
-							<p class="status" [ngClass]="{
-									'status-active': client.ClientStatus === 'Activo', 
-									'status-blocked': client.ClientStatus === 'Bloqueado', 
-									'status-inactive': client.ClientStatus === 'Inactivo'
+							<p class="status" [ngClass]="{  
+									'status-active': client.ClientStatus === 'Activo' || 'Active',   
+									'status-blocked': client.ClientStatus === 'Bloqueado',   
+									'status-inactive': client.ClientStatus === 'Inactivo',   
 								}">
 								{{ client.ClientStatus }}
 							</p>

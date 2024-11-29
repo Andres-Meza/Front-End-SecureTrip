@@ -6,22 +6,25 @@
 			<div class="form-grid">
 				<div>
 					<label for="first_name">Nombre:</label>
-					<input id="first_name" type="text" [(ngModel)]="client.FirstName" name="first_name" required />
+					<input id="first_name" type="text" [(ngModel)]="client.FirstName" name="first_name" autocomplete="off"
+						required />
 				</div>
 
 				<div>
 					<label for="last_name">Apellido:</label>
-					<input id="last_name" type="text" [(ngModel)]="client.LastName" name="last_name" required />
+					<input id="last_name" type="text" [(ngModel)]="client.LastName" name="last_name" autocomplete="off"
+						required />
 				</div>
 
 				<div>
 					<label for="email">Email:</label>
-					<input id="email" type="email" [(ngModel)]="client.Email" name="email" required />
+					<input id="email" type="email" [(ngModel)]="client.Email" name="email" autocomplete="off" required />
 				</div>
 
 				<div>
 					<label for="password">Contraseña:</label>
-					<input id="password" type="password" [(ngModel)]="client.Password" name="password" required />
+					<input id="password" type="password" [(ngModel)]="client.Password" name="password" autocomplete="off"
+						required />
 				</div>
 
 				<div>
@@ -56,7 +59,8 @@
 
 				<div>
 					<label for="birth_date">Fecha de Nacimiento:</label>
-					<input id="birth_date" type="date" [(ngModel)]="client.BirthDate" name="birth_date" required />
+					<input id="birth_date" type="date" [(ngModel)]="client.BirthDate" name="birth_date" autocomplete="off"
+						required />
 				</div>
 			</div>
 

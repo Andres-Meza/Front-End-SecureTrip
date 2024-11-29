@@ -5,22 +5,25 @@
 			<div class="form-grid">
 				<div class="form-group">
 					<label for="first_name">Nombre:</label>
-					<input id="first_name" type="text" [(ngModel)]="collaborator.FirstName" name="first_name" required />
+					<input id="first_name" type="text" [(ngModel)]="collaborator.FirstName" name="first_name" autocomplete="off"
+						required />
 				</div>
 
 				<div class="form-group">
 					<label for="last_name">Apellido:</label>
-					<input id="last_name" type="text" [(ngModel)]="collaborator.LastName" name="last_name" required />
+					<input id="last_name" type="text" [(ngModel)]="collaborator.LastName" name="last_name" autocomplete="off"
+						required />
 				</div>
 
 				<div class="form-group">
 					<label for="email">Email:</label>
-					<input id="email" type="email" [(ngModel)]="collaborator.Email" name="email" required />
+					<input id="email" type="email" [(ngModel)]="collaborator.Email" name="email" autocomplete="off" required />
 				</div>
 
 				<div class="form-group">
 					<label for="password">Contraseña:</label>
-					<input id="password" type="password" [(ngModel)]="collaborator.Password" name="password" required />
+					<input id="password" type="password" [(ngModel)]="collaborator.Password" name="password" autocomplete="off"
+						required />
 				</div>
 
 				<div class="form-group">
@@ -65,18 +68,20 @@
 
 				<div class="form-group">
 					<label for="specialty">Especialidad:</label>
-					<input id="specialty" type="text" [(ngModel)]="collaborator.Specialty" name="specialty" required />
+					<input id="specialty" type="text" [(ngModel)]="collaborator.Specialty" name="specialty" autocomplete="off"
+						required />
 				</div>
 
 				<div class="form-group">
 					<label for="competence_level">Nivel de Competencia:</label>
 					<input id="competence_level" type="text" [(ngModel)]="collaborator.CompetencyLevel" name="competence_level"
-						required />
+						autocomplete="off" required />
 				</div>
 
 				<div class="form-group">
 					<label for="license_type">Tipo de Licencia:</label>
-					<input id="license_type" type="text" [(ngModel)]="collaborator.LicenseType" name="license_type" required />
+					<input id="license_type" type="text" [(ngModel)]="collaborator.LicenseType" name="license_type"
+						autocomplete="off" required />
 				</div>
 			</div>
 
