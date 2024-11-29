@@ -16,6 +16,7 @@ import { ServicesComponent } from './components/services/services/services.compo
 import { ServiceseditComponent } from './components/services/servicesedit/servicesedit.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PaymentComponent } from './components/payment/payment/payment.component';
+import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 
 export const routes: Routes = [
 	{ path: '', redirectTo: '', pathMatch: 'full' },
@@ -35,6 +36,8 @@ export const routes: Routes = [
 	{ path: 'services-list', component: ServicesListComponent},
 	{ path: 'services-edit/:id', component: ServiceseditComponent},
 	{ path: 'dashboard', component: DashboardComponent},
-	{ path: 'payment-add', component: PaymentComponent}
+	{ path: 'payment-add', component: PaymentComponent},
+	{ path: 'payment-list', component: PaymentListComponent},
+
 
 ];

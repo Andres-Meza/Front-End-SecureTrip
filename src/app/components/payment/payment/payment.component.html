@@ -1,41 +1,73 @@
-<div>
-	<h2>Registrar Pago</h2>
-	<form (ngSubmit)="registerPayment()">
-		<div>
-			<label for="clientID">Cliente</label>
-			<input type="number" id="clientID" [(ngModel)]="payment.ClientID" name="clientID" required>
-		</div>
+<div class="flex items-center justify-center min-h-screen bg-gray-900">
+	<div class="max-w-md mx-auto bg-gray-800 shadow-md rounded-lg p-6 transition-all hover:scale-105">
+		<h2 class="text-2xl font-bold mb-6 text-center text-white">Registro de Pagos</h2>
 
-		<div>
-			<label for="serviceID">Servicio</label>
-			<input type="number" id="serviceID" [(ngModel)]="payment.ServiceID" name="serviceID" required>
-		</div>
+		<form (ngSubmit)="registerPayment()" #paymentForm="ngForm">
+			<div class="mb-4">
+				<label for="clientID" class="block text-white font-bold mb-2">
+					Cliente <span class="text-red-500">*</span>
+				</label>
+				<select id="clientID" name="clientID" [(ngModel)]="payment.ClientID" required
+					class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+					<option value="">Seleccione un cliente</option>
+					<option *ngFor="let client of clients" [value]="client.ClientID">
+						{{ client.FirstName }} {{ client.LastName }}
+					</option>
+				</select>
+			</div>
 
-		<div>
-			<label for="amount">Monto</label>
-			<input type="number" id="amount" [(ngModel)]="payment.Amount" name="amount" required>
-		</div>
+			<div class="mb-4">
+				<label for="serviceID" class="block text-white font-bold mb-2">
+					Servicio <span class="text-red-500">*</span>
+				</label>
+				<select id="serviceID" name="serviceID" [(ngModel)]="payment.ServiceID" required
+					class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+					<option value="">Seleccione un servicio</option>
+					<option *ngFor="let service of services" [value]="service.ServiceID">
+						{{ service.ServiceName }}
+					</option>
+				</select>
+			</div>
 
-		<div>
-			<label for="paymentMethod">Método de Pago</label>
-			<select id="paymentMethod" [(ngModel)]="payment.PaymentMethod" name="paymentMethod" required>
-				<option value="Credit Card">Tarjeta de Crédito</option>
-				<option value="PayPal">PayPal</option>
-				<option value="PayPal">Efectivo</option>
-			</select>
-		</div>
+			<div class="mb-4">
+				<label for="amount" class="block text-white font-bold mb-2">
+					Monto <span class="text-red-500">*</span>
+				</label>
+				<input type="number" id="amount" name="amount" [(ngModel)]="payment.Amount" required step="0.01" min="0"
+					class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+					placeholder="Ingrese el monto">
+			</div>
 
-		<div>
-			<label for="reference">Referencia</label>
-			<input type="text" id="reference" [(ngModel)]="payment.Reference" name="reference" required>
-		</div>
+			<div class="mb-4">
+				<label for="paymentMethod" class="block text-white font-bold mb-2">
+					Método de Pago <span class="text-red-500">*</span>
+				</label>
+				<select id="paymentMethod" name="paymentMethod" [(ngModel)]="payment.PaymentMethod" required
+					class="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+					<option value="">Seleccione un método de pago</option>
+					<option value="Efectivo">Efectivo</option>
+					<option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+					<option value="Transferencia Bancaria">Transferencia Bancaria</option>
+					<option value="PayPal">PayPal</option>
+				</select>
+			</div>
 
-		<div>
-			<button type="submit">Registrar Pago</button>
-		</div>
-	</form>
+			<div class="mb-6">
+				<button type="submit" [disabled]="!paymentForm.form.valid" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300 
+						disabled:bg-gray-400 disabled:cursor-not-allowed">
+					Registrar Pago
+				</button>
+			</div>
+		</form>
 
-	<div *ngIf="mensaje">
-		<p>{{ mensaje }}</p>
+		<!-- Mensaje de respuesta -->
+		<div *ngIf="mensaje" class="mt-4">
+			<div [ngClass]="{
+					'bg-green-100 border-green-400 text-green-700': !error,
+					'bg-red-100 border-red-400 text-red-700': error
+				}" class="p-4 rounded-md border">
+				{{ mensaje }}
+			</div>
+		</div>
 	</div>
 </div>

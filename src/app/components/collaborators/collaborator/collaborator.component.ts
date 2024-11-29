@@ -23,6 +23,7 @@ export class CollaboratorComponent implements OnInit {
     FirstName: '',
     LastName: '',
     Email: '',
+    Password: '',
     TypeCollaborator: '',
     CountryID: '',
     CityID: '',

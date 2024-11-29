@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ClientsService } from '../../../services/clients.service';
+import { ServicesService } from '../../../services/services.service';
 
 
 @Component({
@@ -12,42 +14,66 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
+
 export class PaymentComponent implements OnInit {
   ipAddress: string = '';
-  payment: PaymentRequest = {
+  payment = {
     ClientID: 0,
     ServiceID: 0,
     Amount: 0,
     PaymentMethod: '',
     IPAddress: '',
-    Reference: ''
   };
-  mensaje: string | null = null;
+  clients: any = [];
+  services: any = [];
+  paymentReference: string = '';
+  mensaje: string = '';
+  error: boolean = false;
   
   constructor(
     private paymentService: PaymentsService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private clientService: ClientsService,
+    private serviceService: ServicesService,
   ) {}
   
   ngOnInit(): void {
+    this.getIPAddress(),
+    this.loadClient(),
+    this.loadServices();
+  }
+  
+  
+  getIPAddress(): void{
     this.http.get<any>('https://api.ipify.org?format=json').subscribe((data) => {
       this.ipAddress = data.ip;
       this.payment.IPAddress = this.ipAddress;
     });
   }
-  
 
+  loadClient() {
+    this.clientService.getClients().subscribe(data => {
+      this.clients = data;
+    });
+  }
+
+  loadServices() {
+    this.serviceService.getServices().subscribe(data => {
+      this.services = data;
+    });
+  }
+  
   registerPayment() {
-    console.log('Datos enviados:', this.payment);
     this.paymentService.registerPayment(this.payment).subscribe(
-      (response: any) => {
-        this.mensaje = response.mensaje;
-        this.router.navigate(['/dashboard']);
+      response => {
+        this.mensaje = `Pago exitoso. Referencia`;
+        this.error = false;
+        this.router.navigate(['/payment-list']);
       },
-      (error) => {
-        console.error('Error al registrar el pago', error);
-        this.mensaje = 'Error al registrar el pago';
+      err => {
+        this.mensaje = 'Error al registrar el pago.';
+        this.error = true;
       }
     );
   }
